@@ -5,13 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Portfolio{% endblock %}</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">PORTFOLIO</div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="/" class="nav-link">INFO</a>
+            </li>
+            <li class="nav-item">
+                <a href="/projects/" class="nav-link">PROJECTS</a>
+            </li>
+            <li class="nav-item">
+                <a href="/skills/" class="nav-link">SKILLS</a>
+            </li>
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">CONTACT</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Main Content Area -->
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

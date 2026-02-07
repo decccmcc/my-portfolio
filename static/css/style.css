@@ -1,5 +1,46 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and layout */
 body {
     background: #000000;
     color: #8fde5d;
     font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    min-height: 100vh;
 }
+/* Navigation sidebar */
+.sidebar {
+    width: 250px;
+    background: #000000;
+    color: #8fde5d;
+    padding: 40px 0;
+    border-right: 2px solid #1a1a1a;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 30px;
+    color: #8fde5d;
+    text-decoration: none;
+}
+
+/* Main content area */
+.main-content {
+    margin-left: 250px;
+    display: flex;
+    padding: 40px;
+}
+
+ 
