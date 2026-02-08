@@ -43,4 +43,76 @@ body {
     padding: 40px;
 }
 
+/* Projects showcase */
+.projects {
+    width: 100%;
+}
+
+.projects-header {
+    margin-bottom: 24px;
+}
+
+.projects-title {
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.projects-subtitle {
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+.projects-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.project-card {
+    border: 2px solid #1a1a1a;
+    background: rgba(143, 222, 93, 0.03);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: #8fde5d;
+    
+}
+
+.project-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+
+
+.project-summary, .project-tech {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+
+.project-links {
+    display: flex;
+    gap: 12px;
+}
+
+.project-link {
+    font-size: 11px;
+    color: #8fde5d;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.project-link:hover {
+    border-bottom-color: #8fde5d;
+}
+
+
  
