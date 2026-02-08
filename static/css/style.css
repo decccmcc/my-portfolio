@@ -1,3 +1,12 @@
+/* CSS Variables */
+:root {
+    --color-bg-primary: #000000;
+    --color-primary: #8fde5d;
+    --color-border: #1a1a1a;
+    --color-primary-light: rgba(143, 222, 93, 0.03);
+    --color-primary-glow: rgba(143, 222, 93, 0.2);
+}
+
 /* Global styles */
 * {
     margin: 0;
@@ -7,8 +16,8 @@
 
 /* Body and layout */
 body {
-    background: #000000;
-    color: #8fde5d;
+    background: var(--color-bg-primary);
+    color: var(--color-primary);
     font-family: 'JetBrains Mono', monospace;
     display: flex;
     min-height: 100vh;
@@ -16,10 +25,10 @@ body {
 /* Navigation sidebar */
 .sidebar {
     width: 250px;
-    background: #000000;
-    color: #8fde5d;
+    background: var(--color-bg-primary);
+    color: var(--color-primary);
     padding: 40px 0;
-    border-right: 2px solid #1a1a1a;
+    border-right: 2px solid var(--color-border);
     position: fixed;
     height: 100vh;
     overflow-y: auto;
@@ -32,7 +41,7 @@ body {
 .nav-link {
     display: block;
     padding: 12px 30px;
-    color: #8fde5d;
+    color: var(--color-primary);
     text-decoration: none;
 }
 
@@ -69,8 +78,8 @@ body {
 }
 
 .project-card {
-    border: 2px solid #1a1a1a;
-    background: rgba(143, 222, 93, 0.03);
+    border: 2px solid var(--color-border);
+    background: var(--color-primary-light);
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -79,7 +88,7 @@ body {
 }
 
 .project-card:hover {
-    border-color: #8fde5d;
+    border-color: var(--color-primary);
     
 }
 
@@ -89,8 +98,6 @@ body {
     justify-content: space-between;
     gap: 8px;
 }
-
-
 
 .project-summary, .project-tech {
     font-size: 12px;
@@ -105,13 +112,13 @@ body {
 
 .project-link {
     font-size: 11px;
-    color: #8fde5d;
+    color: var(--color-primary);
     text-decoration: none;
     border-bottom: 1px solid transparent;
 }
 
 .project-link:hover {
-    border-bottom-color: #8fde5d;
+    border-bottom-color: var(--color-primary);
 }
 
 
