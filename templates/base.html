@@ -20,13 +20,13 @@
         </div>
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="/" class="nav-link">INFO</a>
+                <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">INFO</a>
             </li>
             <li class="nav-item">
-                <a href="/projects/" class="nav-link">PROJECTS</a>
+                <a href="{% url 'projects' %}" class="nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}">PROJECTS</a>
             </li>
             <li class="nav-item">
-                <a href="/skills/" class="nav-link">SKILLS</a>
+                <a href="{% url 'skills' %}" class="nav-link {% if request.resolver_match.url_name == 'skills' %}active{% endif %}">SKILLS</a>
             </li>
             <li class="nav-item">
                 <a href="#contact" class="nav-link">CONTACT</a>
