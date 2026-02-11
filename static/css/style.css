@@ -22,10 +22,12 @@ body {
     display: flex;
     min-height: 100vh;
 }
+
+
 /* Navigation sidebar */
 
 .sidebar {
-    width: 250px;
+    width: 200px;
     background: var(--color-bg-primary);
     color: var(--color-primary);
     padding: 40px 0;
@@ -81,7 +83,7 @@ body {
 
 /* Main content area */
 .main-content {
-    margin-left: 250px;
+    margin-left: 200px;
     display: flex;
     padding: 40px;
 }
@@ -156,6 +158,11 @@ body {
 }
 
  /* Project Detail View  */
+
+.project-gallery {
+    margin-bottom: 32px;
+}
+
 .project-detail {
     max-width: 900px;
 }
@@ -166,6 +173,38 @@ body {
     gap: 12px;
     margin-bottom: 16px;
 }
+.project-info {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+/* Project Gallery */
+.gallery-main {
+    border: 2px solid var(--color-border);
+    margin-bottom: 12px;
+    overflow: hidden;
+    max-height: 500px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.gallery-thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid var(--color-border);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    flex-shrink: 0;
+}
+
 
 /* Project Detail View links */
 .detail-link {
@@ -181,7 +220,9 @@ body {
     border-color: var(--color-accent);
     background: rgba(143, 222, 93, 0.05);
 }
-
+.project-detail-links {
+    margin-left: auto;
+}
 .project-back {
     margin-top: 40px;
     padding-top: 20px;
@@ -200,3 +241,77 @@ body {
     opacity: 1;
 }
 
+/* Project Gallery
+
+
+
+
+
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+
+.gallery-thumb:hover {
+    border-color: var(--color-accent);
+}
+
+/* Project Detail Content
+.project-detail-title {
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.project-detail-summary {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 24px;
+}
+
+.project-detail-content {
+    margin-bottom: 32px;
+}
+
+.project-description {
+    font-size: 12px;
+    opacity: 0.8;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+
+
+.info-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.info-title {
+    font-size: 12px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.info-value {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.project-detail-links {
+    display: flex;
+    gap: 12px;
+}
+
+.project-badge {
+    font-size: 9px;
+    padding: 3px 8px;
+    border: 1px solid var(--color-border);
+    opacity: 0.7;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+ */
