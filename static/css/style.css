@@ -235,83 +235,8 @@ body {
     text-decoration: none; 
     opacity: 0.6;
     transition: opacity 0.2s ease;
-}
+ }
 
 .back-link:hover {
     opacity: 1;
 }
-
-/* Project Gallery
-
-
-
-
-
-
-.gallery-thumbnails {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-}
-
-
-.gallery-thumb:hover {
-    border-color: var(--color-accent);
-}
-
-/* Project Detail Content
-.project-detail-title {
-    font-size: 28px;
-    letter-spacing: 1px;
-}
-
-.project-detail-summary {
-    font-size: 13px;
-    opacity: 0.8;
-    margin-bottom: 24px;
-}
-
-.project-detail-content {
-    margin-bottom: 32px;
-}
-
-.project-description {
-    font-size: 12px;
-    opacity: 0.8;
-    line-height: 1.8;
-    margin-bottom: 24px;
-}
-
-
-
-.info-section {
-    flex: 1;
-    min-width: 200px;
-}
-
-.info-title {
-    font-size: 12px;
-    opacity: 0.6;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
-
-.info-value {
-    font-size: 12px;
-    opacity: 0.8;
-}
-
-.project-detail-links {
-    display: flex;
-    gap: 12px;
-}
-
-.project-badge {
-    font-size: 9px;
-    padding: 3px 8px;
-    border: 1px solid var(--color-border);
-    opacity: 0.7;
-    letter-spacing: 1px;
-    white-space: nowrap;
-}
- */
