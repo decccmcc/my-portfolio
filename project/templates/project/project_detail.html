@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - My Portfolio{% endblock %}
+
+{% block content %}
+    <article class="project-detail">
+        <div class="project-detail-header">
+            <h1 class="project-detail-title">{{ project.title }}</h1>
+            {% if project.featured %}
+                <span class="project-badge">Featured</span>
+            {% endif %}
+        </div>
+        
+        <p class="project-detail-summary">{{ project.summary }}</p>
+        
+        {% if images %}
+            <div class="project-gallery">
+                <div class="gallery-main">
+                    <img id="mainImage" src="{{ images.0.image.url }}" alt="{{ project.title }}" class="gallery-image">
+                </div>
+                {% if images|length > 1 %}
+                    <div class="gallery-thumbnails">
+                        {% for image in images %}
+                            <img src="{{ image.image.url }}" alt="{{ image.caption }}" 
+                                 class="gallery-thumb" 
+                                 onclick="document.getElementById('mainImage').src='{{ image.image.url }}'">
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+        
+        <div class="project-detail-content">
+            <p class="project-description">{{ project.description }}</p>
+            
+            <div class="project-info">
+                <div class="info-section">
+                    <h3 class="info-title">Tech Stack</h3>
+                    <p class="info-value">{{ project.tech_stack }}</p>
+                </div>
+                
+                <div class="project-detail-links">
+                    {% if project.github_url %}
+                        <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer" class="detail-link">GitHub</a>
+                    {% endif %}
+                    {% if project.live_url %}
+                        <a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer" class="detail-link">Live Demo</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-back">
+            <a href="{% url 'projects' %}" class="back-link">← Back to Projects</a>
+        </div>
+    </article>
+{% endblock %}

@@ -18,6 +18,7 @@
                     <p class="project-description">{{ project.description|truncatewords:24 }}</p>
                     <p class="project-tech">{{ project.tech_stack }}</p>
                     <div class="project-links">
+                        <a href="{% url 'project-detail' project.slug %}" class="project-link">View Project</a>
                         {% if project.github_url %}
                             <a class="project-link" href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
                         {% endif %}
