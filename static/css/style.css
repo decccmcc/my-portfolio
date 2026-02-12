@@ -301,3 +301,86 @@ body {
 .back-link:hover {
     opacity: 1;
 }
+
+/* Skills Page */
+.skills {
+    width: 100%;
+}
+
+.skills-header {
+    margin-bottom: 32px;
+}
+
+.skills-title {
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.skills-subtitle {
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+.skill-category {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+    opacity: 0.8;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.skill-card {
+    border: 2px solid var(--color-border);
+    background: var(--color-accent-light);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s ease;
+}
+
+.skill-card:hover {
+    border-color: var(--color-accent);
+}
+
+.skill-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.skill-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.skill-name {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.skill-level {
+    font-size: 9px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.skills-empty {
+    opacity: 0.6;
+    font-size: 12px;
+}
