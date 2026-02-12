@@ -1,15 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %} Skills & Stack{% endblock %}
+{% block title %}Skills & Stack - My Portfolio{% endblock %}
 
 {% block content %}
-    <div class="terminal">
-        <div class="terminal-header">
-            <span class="terminal-title">My Skills</span>
+    <section class="skills">
+        <div class="skills-header">
+            <h1 class="skills-title">Skills & Technologies</h1>
+            <p class="skills-subtitle">Tools and languages I work with.</p>
         </div>
-        <div class="terminal-body">
-            <h1>Skills</h1>
-            <p>Description</p>
-        </div>
-    </div>
+        
+        {% if skills_by_category %}
+            {% for category_name, skills in skills_by_category.items %}
+                <div class="skill-category">
+                    <h2 class="category-title">{{ category_name }}</h2>
+                    <div class="skill-grid">
+                        {% for skill in skills %}
+                            <div class="skill-card">
+                                {% if skill.icon %}
+                                    <img src="{{ skill.icon.url }}" alt="{{ skill.name }}" class="skill-icon">
+                                {% endif %}
+                                <div class="skill-info">
+                                    <h3 class="skill-name">{{ skill.name }}</h3>
+                                    <span class="skill-level skill-level-{{ skill.proficiency }}">
+                                        {{ skill.get_proficiency_display }}
+                                    </span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="skills-empty">No skills available.</p>
+        {% endif %}
+    </section>
 {% endblock %}
