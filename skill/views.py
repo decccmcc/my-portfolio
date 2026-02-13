@@ -3,6 +3,7 @@ from django.views import View
 from .models import Skill
 
 class SkillsView(View):
+	"""View to display skills categorized by their category."""
 	def get(self, request):
 		skills_by_category = {}
 		for category_code, category_name in Skill.CATEGORY_CHOICES:
