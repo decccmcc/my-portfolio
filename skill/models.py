@@ -1,5 +1,4 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 
 class Skill(models.Model):
     """ Model for showcasing skills in  portfolio """
@@ -21,7 +20,7 @@ class Skill(models.Model):
     name = models.CharField(max_length=100)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='other')
     proficiency = models.CharField(max_length=20, choices=PROFICIENCY_CHOICES, default='intermediate')
-    icon = CloudinaryField('icon', blank=True, null=True)
+    icon_class = models.CharField(max_length=100, blank=True, null=True, help_text='Font Awesome class (e.g., "fab fa-react", "fab fa-python")')
     
     featured = models.BooleanField(default=False)
     order = models.PositiveIntegerField(default=0)
