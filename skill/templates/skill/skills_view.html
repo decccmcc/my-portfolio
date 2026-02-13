@@ -16,8 +16,8 @@
                     <div class="skill-grid">
                         {% for skill in skills %}
                             <div class="skill-card">
-                                {% if skill.icon %}
-                                    <img src="{{ skill.icon.url }}" alt="{{ skill.name }}" class="skill-icon">
+                                {% if skill.icon_class %}
+                                    <i class="skill-icon {{ skill.icon_class }}"></i>
                                 {% endif %}
                                 <div class="skill-info">
                                     <h3 class="skill-name">{{ skill.name }}</h3>
