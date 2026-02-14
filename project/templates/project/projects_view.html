@@ -14,16 +14,24 @@
                     <div class="project-card-header">
                         <h2 class="project-title">{{ project.title }}</h2>
                     </div>
-                    <p class="project-summary">{{ project.summary }}</p>
-                    <p class="project-description">{{ project.description|truncatewords:24 }}</p>
-                    <p class="project-tech">{{ project.tech_stack }}</p>
+                    {% if project.summary %}
+                        <p class="project-summary">{{ project.summary }}</p>
+                    {% endif %}
+                    {% if project.description %}
+                        <p class="project-description">{{ project.description|truncatewords:30 }}</p>
+                    {% endif %}
+                    {% if project.tech_stack %}
+                        <div class="project-tech">
+                            <span class="tech-tag">{{ project.tech_stack }}</span>
+                        </div>
+                    {% endif %}
                     <div class="project-links">
-                        <a href="{% url 'project-detail' project.slug %}" class="project-link">View Project</a>
+                        <a href="{% url 'project-detail' project.slug %}" class="project-link">[View]</a>
                         {% if project.github_url %}
-                            <a class="project-link" href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a class="project-link" href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">[GitHub]</a>
                         {% endif %}
                         {% if project.live_url %}
-                            <a class="project-link" href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">Live</a>
+                            <a class="project-link" href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">[Live]</a>
                         {% endif %}
                     </div>
                 </article>
