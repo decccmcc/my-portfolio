@@ -3,13 +3,58 @@
 {% block title %}Home - My Portfolio{% endblock %}
 
 {% block content %}
-    <div class="terminal">
-        <div class="terminal-header">
-            <span class="terminal-title">My Portfolio</span>
+    <section class="home">
+        <div class="home-grid">
+            <article class="home-card info-card">
+                <header class="card-header">
+                    <span class="card-title">Profile</span>
+                </header>
+                <div class="card-body">
+                    <h1 class="info-title">Declan McCafferty</h1>
+                    <p class="info-role">Full-Stack Developer</p>
+                    <p class="info-summary">
+                        I build modern, performant web apps with clean UX and robust backends.
+                    </p>
+                    <div class="info-links">
+                        <a class="info-link" href="{% url 'projects' %}">View Projects</a>
+                        <a class="info-link" href="{% url 'skills' %}">View Skills</a>
+                        <a class="info-link" href="#">Contact</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="home-card stats-card">
+                <header class="card-header">
+                    <span class="card-title">Stats</span>
+                </header>
+                <div class="card-body stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Projects</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Skills</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">GitHub Commits</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="home-card focus-card">
+                <header class="card-header">
+                    <span class="card-title">Focus</span>
+                </header>
+                <div class="card-body">
+                    <ul class="focus-list">
+                        <li>Frontend performance and accessibility</li>
+                        <li>API design and data modeling</li>
+                        <li>Clean, maintainable codebases</li>
+                    </ul>
+                </div>
+            </article>
         </div>
-        <div class="terminal-body">
-            <h1>Welcome to My Portfolio</h1>
-            <p>This is the home page of my portfolio website.</p>
-        </div>
-    </div>
+    </section>
 {% endblock %}
