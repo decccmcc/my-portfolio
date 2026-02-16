@@ -10,7 +10,7 @@
         </div>
         <div class="projects-grid">
             {% for project in projects %}
-                <article class="project-card">
+                <article class="project-card card">
                     <div class="project-card-header">
                         <h2 class="project-title">{{ project.title }}</h2>
                     </div>
@@ -26,12 +26,12 @@
                         </div>
                     {% endif %}
                     <div class="project-links">
-                        <a href="{% url 'project-detail' project.slug %}" class="project-link">[View]</a>
+                        <a href="{% url 'project-detail' project.slug %}" class="link link-sm link-primary">[View]</a>
                         {% if project.github_url %}
-                            <a class="project-link" href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">[GitHub]</a>
+                            <a class="link link-sm link-primary" href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">[GitHub]</a>
                         {% endif %}
                         {% if project.live_url %}
-                            <a class="project-link" href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">[Live]</a>
+                            <a class="link link-sm link-primary" href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">[Live]</a>
                         {% endif %}
                     </div>
                 </article>

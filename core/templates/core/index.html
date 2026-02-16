@@ -5,7 +5,7 @@
 {% block content %}
     <section class="home">
         <div class="home-grid">
-            <article class="home-card info-card">
+            <article class="home-card info-card card">
                 <header class="card-header">
                     <span class="card-title">Profile</span>
                 </header>
@@ -16,14 +16,14 @@
                         I build modern, performant web apps with clean UX and robust backends.
                     </p>
                     <div class="info-links">
-                        <a class="info-link" href="{% url 'projects' %}">View Projects</a>
-                        <a class="info-link" href="{% url 'skills' %}">View Skills</a>
-                        <a class="info-link" href="#">Contact</a>
+                        <a class="info-link link link-sm link-primary" href="{% url 'projects' %}">View Projects</a>
+                        <a class="info-link link link-sm link-primary" href="{% url 'skills' %}">View Skills</a>
+                        <a class="info-link link link-sm link-primary" href="#">Contact</a>
                     </div>
                 </div>
             </article>
 
-            <article class="home-card stats-card">
+            <article class="home-card stats-card card">
                 <header class="card-header">
                     <span class="card-title">Stats</span>
                 </header>
@@ -43,7 +43,7 @@
                 </div>
             </article>
 
-            <article class="home-card focus-card">
+            <article class="home-card focus-card card">
                 <header class="card-header">
                     <span class="card-title">Focus</span>
                 </header>
