@@ -90,6 +90,93 @@ body {
     flex: 1;
 }
 
+/* Home page */
+.home {
+    width: 100%;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.home-card {
+    background: rgba(143, 222, 93, 0.02);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.card-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.card-body {
+    padding: 20px;
+    flex: 1;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 10px;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.focus-list {
+    list-style: none;
+    font-size: 12px;
+    opacity: 0.8;
+    line-height: 1.8;
+}
+
+.focus-list li {
+    padding-left: 12px;
+    position: relative;
+}
+
+.focus-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+}
+
+.info-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.info-link {
+    text-align: center;
+}
+
 /* Shared UI */
 .card {
     border: 2px solid var(--color-border);
@@ -575,6 +662,15 @@ body {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+  
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -597,5 +693,17 @@ body {
     width: 35px;
     height: 35px;
     font-size: 18px;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .stat-value {
+    font-size: 16px;
+  }
+  
+  .focus-list li {
+    font-size: 11px;
   }
 }
