@@ -1,8 +1,12 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from project.models import Project
+from skill.models import Skill
 
-# Create your views here.
 class home(View):
     def get(self, request):
-        return render(request, 'core/index.html')
+        context = {
+            'project_count': Project.objects.count(),
+            'skill_count': Skill.objects.count(),
+        }
+        return render(request, 'core/index.html', context)
