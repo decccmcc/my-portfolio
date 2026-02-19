@@ -135,3 +135,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Github API settings
+
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+GITHUB_USERNAME = os.environ.get("GITHUB_USERNAME")
