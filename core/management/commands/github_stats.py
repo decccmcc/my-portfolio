@@ -1,11 +1,11 @@
 import requests
 
 from django.core.management.base import BaseCommand
-from django.core.cache import cache
 from django.conf import settings
+from core.models import GitHubStat
 
 class Command(BaseCommand):
-    help = 'Fetches GitHub stats and caches them for display on the portfolio'
+    help = 'Fetches GitHub stats and saves them to the database'
 
     def handle(self, *args, **options):
         username = settings.GITHUB_USERNAME
@@ -15,7 +15,12 @@ class Command(BaseCommand):
 
         try:
             total = self.get_commit_count(username, token)
-            cache.set('github_commit_count', total, timeout=3600)  # Cache for 1 hour
+            
+            # Save to database
+            stats_obj = GitHubStat.objects.get_or_create(pk=1)[0]
+            stats_obj.stats = {'commits': total}
+            stats_obj.save()
+            
             self.stdout.write(f"Total commits for {username}: {total}")
 
         except Exception as e:
