@@ -33,9 +33,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['my-portfolio-app-985c97d52384.herokuapp.com']
+ALLOWED_HOSTS = ['my-portfolio-app-985c97d52384.herokuapp.com', '127.0.0.1' ]
 
-CSRF_TRUSTED_ORIGINS = [ 'https://*.herokuapp.com' ]
+CSRF_TRUSTED_ORIGINS = [ 'https://*.herokuapp.com']
 
 # Application definition
 
