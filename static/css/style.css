@@ -99,13 +99,6 @@ body {
     margin-bottom: 32px;
 }
 
-.page-title {
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--color-primary);
-    opacity: 0.9;
-}
-
 .home-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -255,6 +248,13 @@ body {
     background: rgba(143, 222, 93, 0.05);
 }
 
+.page-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-primary);
+    opacity: 0.9;
+}
+
 /* Projects showcase */
 .projects {
     width: 100%;
@@ -265,8 +265,6 @@ body {
 }
 
 .projects-title {
-    font-size: 22px;
-    letter-spacing: 1px;
     margin-bottom: 6px;
 }
 
@@ -365,8 +363,6 @@ body {
 }
 
 .project-detail-title {
-    font-size: 28px;
-    letter-spacing: 1px;
 }
 
 .project-detail-summary {
@@ -492,8 +488,6 @@ body {
 }
 
 .skills-title {
-    font-size: 22px;
-    letter-spacing: 1px;
     margin-bottom: 6px;
 }
 
