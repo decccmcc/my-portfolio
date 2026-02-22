@@ -23,7 +23,6 @@ body {
     min-height: 100vh;
 }
 
-
 /* Navigation sidebar */
 
 .sidebar {
@@ -83,12 +82,27 @@ body {
 }
 
 /* Main content area */
+/* Scanlines */
+body, .sidebar {
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(143, 222, 93, 0.02),
+            rgba(143, 222, 93, 0.02) 1px,
+            transparent 1px,
+            transparent 2px
+        ),
+        var(--color-bg-primary);
+}
+
 .main-content {
     margin-left: 200px;
     display: flex;
     padding: 40px;
     flex: 1;
 }
+
+
 
 /* Home page */
 .home {
@@ -252,7 +266,17 @@ body {
     font-size: 18px;
     font-weight: 400;
     color: var(--color-primary);
-    opacity: 0.9;
+    opacity: 1;
+}
+
+.page-title::before {
+    content: '[ ';
+    opacity: 0.6;
+}
+
+.page-title::after {
+    content: ' ]';
+    opacity: 0.6;
 }
 
 /* Projects showcase */
