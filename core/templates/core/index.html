@@ -33,15 +33,15 @@
                 <div class="card-body stats-grid">
                     <div class="stat-item">
                         <span class="stat-label">Projects</span>
-                        <span class="stat-value">{{ project_count }}</span>
+                        <a class="stat-value" href="{% url 'projects' %}">{{ project_count }}</a>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Skills</span>
-                        <span class="stat-value">{{ skill_count }}</span>
+                        <a class="stat-value" href="{% url 'skills' %}">{{ skill_count }}</a>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">GitHub Commits</span>
-                        <span class="stat-value">{{ github_commits }}</span>
+                        <a class="stat-value" href="https://github.com/decccmcc" rel="noopener noreferrer" target="_blank">{{ github_commits }}</a>
                     </div>
                 </div>
             </article>
