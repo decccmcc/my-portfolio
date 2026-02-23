@@ -5,11 +5,13 @@
 {% block content %}
     <article class="project-detail">
         <div class="project-detail-header">
+            <div class="project-detail-meta">
+                {% if project.featured %}
+                    <span class="project-badge">FEATURED</span>
+                {% endif %}
+                <span class="project-date">{{ project.created_at|date:"Y" }}</span>
+            </div>
             <h1 class="project-detail-title page-title">$ cat projects/{{ project.slug }}</h1>
-            {% if project.featured %}
-                <span class="project-badge">Featured</span>
-            {% endif %}
-        </div>
         
         <p class="project-detail-summary">{{ project.summary }}</p>
         
