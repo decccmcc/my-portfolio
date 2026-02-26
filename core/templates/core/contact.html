@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - My Portfolio{% endblock %}
+
+{% block content %}
+    <section class="home">
+        <div class="page-header">
+            <h1 class="page-title">$ ./portfolio --contact</h1>
+        </div>
+
+        <div class="home-grid">
+            <article class="home-card card card-accent">
+                <header class="card-header">
+                    <span class="card-title">Send Message</span>
+                </header>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.name }}
+                        {{ form.email }}
+                        {{ form.message }}
+                        <button type="submit" class="link link-sm link-primary" style="margin-top: 12px;">Send</button>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </section>
+{% endblock %}
