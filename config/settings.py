@@ -143,3 +143,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 GITHUB_USERNAME = os.environ.get("GITHUB_USERNAME")
+
+# Email settings
+
+if os.environ.get("EMAIL_BACKEND") == "sendgrid":
+    # Heroku/Production SendGrid
+    EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+    SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
+else:
+    # Development/Testing
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "noreply@portfolio.com")
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "your-email@example.com")
