@@ -311,6 +311,27 @@ body, .sidebar {
     min-height: 120px;
 }
 
+/* Messages */
+.message {
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    border-left: 3px solid;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.message-success {
+    background: rgba(76, 175, 80, 0.1);
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.message-error {
+    background: rgba(244, 67, 54, 0.1);
+    border-color: #f44336;
+    color: #ff6b6b;
+}
+
 .page-title {
     font-size: 18px;
     font-weight: 400;
