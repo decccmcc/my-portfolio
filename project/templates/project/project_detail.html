@@ -3,7 +3,7 @@
 {% block title %}{{ project.title }} - My Portfolio{% endblock %}
 
 {% block content %}
-    <article class="project-detail">
+    <article class="project-detail card card-accent">
         <div class="project-detail-header">
             <div class="project-detail-meta">
                 {% if project.featured %}
@@ -12,6 +12,7 @@
                 <span class="project-date">{{ project.created_at|date:"Y" }}</span>
             </div>
             <h1 class="project-detail-title page-title">$ cat projects/{{ project.slug }}</h1>
+        </div>
         
         <p class="project-detail-summary">{{ project.summary }}</p>
         
