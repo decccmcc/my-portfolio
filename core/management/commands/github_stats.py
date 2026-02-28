@@ -14,28 +14,40 @@ class Command(BaseCommand):
         self.stdout.write(f"Fetching GitHub stats for user: {username}")
 
         try:
-            total = self.get_commit_count(username, token)
+            stats = self.get_github_stats(username, token)
             
             # Save to database
             stats_obj = GitHubStat.objects.get_or_create(pk=1)[0]
-            stats_obj.stats = {'commits': total}
+            stats_obj.stats = stats
             stats_obj.save()
             
-            self.stdout.write(f"Total commits for {username}: {total}")
+            self.stdout.write(f"GitHub stats for {username}: {stats}")
 
         except Exception as e:
             self.stdout.write(f"Error fetching GitHub stats: {e}")
     
-    def get_commit_count(self, username, token):
-        """Get the total commit count for the user using GitHub's GraphQL API """
+    def get_github_stats(self, username, token):
+        """Get GitHub stats including total contributions and commits using GitHub's GraphQL API"""
 
-        # total contributions query to get total commits in the last year
         query = """
         query ($login: String!) {
           user(login: $login) {
             contributionsCollection {
               contributionCalendar {
                 totalContributions
+              }
+            }
+            repositories(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+              nodes {
+                defaultBranchRef {
+                  target {
+                    ... on Commit {
+                      history(first: 0) {
+                        totalCount
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -52,4 +64,17 @@ class Command(BaseCommand):
 
         res.raise_for_status()
         data = res.json()
-        return data['data']['user']['contributionsCollection']['contributionCalendar']['totalContributions']
+        
+        contributions = data['data']['user']['contributionsCollection']['contributionCalendar']['totalContributions']
+        
+        # Sum commits from all repositories
+        total_commits = 0
+        for repo in data['data']['user']['repositories']['nodes']:
+            if repo['defaultBranchRef'] and repo['defaultBranchRef']['target']:
+                commit_count = repo['defaultBranchRef']['target']['history']['totalCount']
+                total_commits += commit_count
+        
+        return {
+            'commits': total_commits,
+            'contributions': contributions
+        }
