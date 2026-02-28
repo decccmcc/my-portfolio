@@ -717,7 +717,7 @@ body, .sidebar {
     top: 20px;
     right: 20px;
     z-index: 1000;
-    background: none;
+    background: var(--color-bg-primary);
     border: 2px solid var(--color-primary);
     padding: 8px;
     cursor: pointer;
@@ -750,9 +750,11 @@ body, .sidebar {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     padding: 20px;
     z-index: 998;
     background: var(--color-bg-primary);
+    border-bottom: 2px solid var(--color-border);
   }
   
   .mobile-header .sidebar-title {
@@ -765,6 +767,10 @@ body, .sidebar {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
   }
   
   .sidebar-header {
