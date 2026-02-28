@@ -147,9 +147,23 @@ body.title-typed .home-card {
     animation-play-state: running;
 }
 
+.info-card {
+    grid-column: 1 / -1;
+}
+
+.focus-section-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    margin: 24px 0 12px 0;
+    opacity: 0.8;
+}
+
 .card-header {
     padding: 16px 20px;
     border-bottom: 1px solid var(--color-border);
+    text-align: center;
 }
 
 .card-title {
