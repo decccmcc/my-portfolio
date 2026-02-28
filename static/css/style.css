@@ -349,6 +349,38 @@ body, .sidebar {
     opacity: 0.6;
 }
 
+.cursor-blink {
+    display: inline-block;
+    margin-left: 1px;
+    animation: cursorBlink 1s steps(1, end) infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+.page-content-reveal {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+body.is-typing-title .page-content-reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+}
+
+body.title-typed .page-content-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
 /* Projects showcase */
 .projects {
     width: 100%;

@@ -8,6 +8,8 @@
             <h1 class="page-title">$ ./portfolio --contact</h1>
         </div>
 
+        <div class="page-content-reveal">
+
         {% if messages %}
             {% for message in messages %}
                 <div class="message message-{{ message.tags }}">
@@ -31,6 +33,7 @@
                     </form>
                 </div>
             </article>
+        </div>
         </div>
     </section>
 {% endblock %}

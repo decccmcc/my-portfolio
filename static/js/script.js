@@ -1,6 +1,8 @@
 const navToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.sidebar');
 const menuIcon = navToggle.querySelector('i');
+const pageTitle = document.querySelector('.page-title');
+const pageRevealBlocks = document.querySelectorAll('.page-content-reveal');
 
 // Toggle sidebar when hamburger is clicked
 navToggle.addEventListener('click', () => {
@@ -28,6 +30,43 @@ navLinks.forEach(link => {
     });
 });
 
+// Typewriter effect for page title before content reveal
+function runTitleTypewriter() {
+    if (!pageTitle) {
+        return;
+    }
+    const originalText = pageTitle.textContent.trim();
+
+    if (!originalText) {
+        document.body.classList.add('title-typed');
+        return;
+    }
+
+    if (pageRevealBlocks.length > 0) {
+        document.body.classList.add('is-typing-title');
+    }
+
+    pageTitle.textContent = '';
+    let charIndex = 0;
+
+    const typeNextChar = () => {
+        pageTitle.textContent += originalText.charAt(charIndex);
+        charIndex += 1;
+
+        if (charIndex < originalText.length) {
+            setTimeout(typeNextChar, 30);
+            return;
+        }
+
+        document.body.classList.remove('is-typing-title');
+        document.body.classList.add('title-typed');
+    };
+
+    setTimeout(typeNextChar, 120);
+}
+
+runTitleTypewriter();
+
 
 
 
@@ -35,5 +74,3 @@ navLinks.forEach(link => {
 function updateMainImage(imageUrl) {
     document.getElementById('mainImage').src = imageUrl;
 }
-
-

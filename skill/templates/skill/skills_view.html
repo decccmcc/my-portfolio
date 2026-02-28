@@ -8,6 +8,7 @@
             <h1 class="skills-title page-title">$ ./portfolio --skills</h1>
             <p class="skills-subtitle">Tools and languages I work with.</p>
         </div>
+        <div class="page-content-reveal">
         
         {% if skills_by_category %}
             {% for category_name, skills in skills_by_category.items %}
@@ -33,5 +34,6 @@
         {% else %}
             <p class="skills-empty">No skills available.</p>
         {% endif %}
+        </div>
     </section>
 {% endblock %}

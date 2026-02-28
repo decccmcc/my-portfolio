@@ -8,7 +8,7 @@
             <h1 class="projects-title page-title">$ ./portfolio --projects</h1>
             <p class="projects-subtitle">Selected work and experiments.</p>
         </div>
-        <div class="projects-grid">
+        <div class="projects-grid page-content-reveal">
             {% for project in projects %}
                 <article class="project-card card card-accent" style="--card-index: {{ forloop.counter }};">
                     {% if project.featured %}
