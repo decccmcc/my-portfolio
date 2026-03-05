@@ -3,6 +3,8 @@ const navMenu = document.querySelector('.sidebar');
 const menuIcon = navToggle.querySelector('i');
 const pageTitle = document.querySelector('.page-title');
 const pageRevealBlocks = document.querySelectorAll('.page-content-reveal');
+const hasFeedbackMessage = document.querySelector('.message-success, .message-error');
+const shouldSkipTitleAnimation = Boolean(hasFeedbackMessage);
 
 // Toggle sidebar when hamburger is clicked
 navToggle.addEventListener('click', () => {
@@ -35,6 +37,13 @@ function runTitleTypewriter() {
     if (!pageTitle) {
         return;
     }
+
+    if (shouldSkipTitleAnimation) {
+        document.body.classList.remove('is-typing-title');
+        document.body.classList.add('title-typed');
+        return;
+    }
+
     const originalText = pageTitle.textContent.trim();
 
     if (!originalText) {
