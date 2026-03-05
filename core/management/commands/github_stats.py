@@ -1,8 +1,10 @@
 import requests
 
-from django.core.management.base import BaseCommand
 from django.conf import settings
+from django.core.management.base import BaseCommand
+
 from core.models import GitHubStat
+
 
 class Command(BaseCommand):
     help = 'Fetches GitHub stats and saves them to the database'
@@ -15,20 +17,17 @@ class Command(BaseCommand):
 
         try:
             stats = self.get_github_stats(username, token)
-            
-            # Save to database
+
             stats_obj = GitHubStat.objects.get_or_create(pk=1)[0]
             stats_obj.stats = stats
             stats_obj.save()
-            
-            self.stdout.write(f"GitHub stats for {username}: {stats}")
 
+            self.stdout.write(f"GitHub stats for {username}: {stats}")
         except Exception as e:
             self.stdout.write(f"Error fetching GitHub stats: {e}")
-    
-    def get_github_stats(self, username, token):
-        """Get GitHub stats including total contributions and commits using GitHub's GraphQL API"""
 
+    def get_github_stats(self, username, token):
+        """Get last-year contributions and commit contributions."""
         query = """
         query ($login: String!) {
           user(login: $login) {
@@ -36,45 +35,34 @@ class Command(BaseCommand):
               contributionCalendar {
                 totalContributions
               }
-            }
-            repositories(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
-              nodes {
-                defaultBranchRef {
-                  target {
-                    ... on Commit {
-                      history(first: 0) {
-                        totalCount
-                      }
-                    }
-                  }
-                }
-              }
+              totalCommitContributions
             }
           }
         }
         """
         variables = {"login": username}
-        headers = {"Authorization": f"Bearer {token}"}  
+        headers = {"Authorization": f"Bearer {token}"}
 
         res = requests.post(
             'https://api.github.com/graphql',
             json={'query': query, 'variables': variables},
-            headers=headers
+            headers=headers,
+            timeout=15,
         )
-
         res.raise_for_status()
         data = res.json()
-        
-        contributions = data['data']['user']['contributionsCollection']['contributionCalendar']['totalContributions']
-        
-        # Sum commits from all repositories
-        total_commits = 0
-        for repo in data['data']['user']['repositories']['nodes']:
-            if repo['defaultBranchRef'] and repo['defaultBranchRef']['target']:
-                commit_count = repo['defaultBranchRef']['target']['history']['totalCount']
-                total_commits += commit_count
-        
+
+        if data.get('errors'):
+            raise ValueError(f"GitHub GraphQL errors: {data['errors']}")
+
+        user_data = data['data']['user']
+        if not user_data:
+            raise ValueError("GitHub user not found or token is invalid.")
+
+        contributions_data = user_data['contributionsCollection']
         return {
-            'commits': total_commits,
-            'contributions': contributions
+            'commits': contributions_data['totalCommitContributions'],
+            'contributions': contributions_data['contributionCalendar'][
+                'totalContributions'
+            ],
         }
