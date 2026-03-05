@@ -336,8 +336,19 @@ body.title-typed .home-card {
 
 .form-input:focus {
     outline: none;
+    background: var(--color-bg-primary);
     border-color: var(--color-primary);
     box-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.form-input:is(:-webkit-autofill, :-webkit-autofill:hover, :-webkit-autofill:focus) {
+    -webkit-text-fill-color: var(--color-primary);
+    -webkit-box-shadow: 0 0 0 1000px var(--color-bg-primary) inset;
+}
+
+.form-input:-moz-autofill {
+    box-shadow: 0 0 0 1000px var(--color-bg-primary) inset;
+    color: var(--color-primary);
 }
 
 .form-input::placeholder {
