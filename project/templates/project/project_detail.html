@@ -26,10 +26,14 @@
                 {% if images|length > 1 %}
                     <div class="gallery-thumbnails">
                         {% for image in images %}
-                            <img src="{{ image.image.url }}" 
-                                 alt="{{ image.caption }}" 
-                                 class="gallery-thumb" 
-                                 onclick="updateMainImage('{{ image.image.url }}')">
+                            <button type="button" 
+                                    class="gallery-thumb-btn" 
+                                    data-image-url="{{ image.image.url }}"
+                                    aria-label="View {{ image.caption }}">
+                                <img src="{{ image.image.url }}" 
+                                     alt="{{ image.caption }}" 
+                                     class="gallery-thumb">
+                            </button>
                         {% endfor %}
                     </div>
                 {% endif %}
