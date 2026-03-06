@@ -27,7 +27,7 @@ class Command(BaseCommand):
             self.stdout.write(f"Error fetching GitHub stats: {e}")
 
     def get_github_stats(self, username, token):
-        """Get last-year contributions and commit contributions."""
+        """Get last-year total contributions."""
         query = """
         query ($login: String!) {
           user(login: $login) {
@@ -35,7 +35,6 @@ class Command(BaseCommand):
               contributionCalendar {
                 totalContributions
               }
-              totalCommitContributions
             }
           }
         }
@@ -61,7 +60,6 @@ class Command(BaseCommand):
 
         contributions_data = user_data['contributionsCollection']
         return {
-            'commits': contributions_data['totalCommitContributions'],
             'contributions': contributions_data['contributionCalendar'][
                 'totalContributions'
             ],
