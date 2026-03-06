@@ -81,5 +81,21 @@ runTitleTypewriter();
 
 // Update main gallery image when thumbnail is clicked
 function updateMainImage(imageUrl) {
-    document.getElementById('mainImage').src = imageUrl;
+    const mainImage = document.getElementById('mainImage');
+    if (mainImage) {
+        mainImage.src = imageUrl;
+    }
 }
+
+// Gallery thumbnail click handler with keyboard support
+document.addEventListener('DOMContentLoaded', () => {
+    const thumbnailBtns = document.querySelectorAll('.gallery-thumb-btn');
+    thumbnailBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const imageUrl = btn.getAttribute('data-image-url');
+            if (imageUrl) {
+                updateMainImage(imageUrl);
+            }
+        });
+    });
+});
