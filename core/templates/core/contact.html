@@ -26,9 +26,32 @@
                 <div class="card-body">
                     <form method="POST">
                         {% csrf_token %}
-                        {{ form.name }}
-                        {{ form.email }}
-                        {{ form.message }}
+                        {% if form.non_field_errors %}
+                            <div class="form-errors">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+                        <div class="form-field">
+                            {{ form.name.label_tag }}
+                            {{ form.name }}
+                            {% if form.name.errors %}
+                                <span class="form-error">{{ form.name.errors.0 }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="form-field">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                                <span class="form-error">{{ form.email.errors.0 }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="form-field">
+                            {{ form.message.label_tag }}
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                                <span class="form-error">{{ form.message.errors.0 }}</span>
+                            {% endif %}
+                        </div>
                         <button type="submit" class="link link-sm link-primary">Send</button>
                     </form>
                 </div>
