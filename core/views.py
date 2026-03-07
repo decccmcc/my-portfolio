@@ -47,5 +47,10 @@ class contact(View):
                 request,
                 'Failed to send message. Please try again later.'
             )
+        else:
+            messages.error(
+                request,
+                'Please correct the highlighted fields and try again.'
+            )
         
         return render(request, 'core/contact.html', {'form': form})

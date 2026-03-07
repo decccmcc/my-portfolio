@@ -24,7 +24,7 @@
                     <span class="card-title">Send Message</span>
                 </header>
                 <div class="card-body">
-                    <form method="POST">
+                    <form method="POST" class="contact-form">
                         {% csrf_token %}
                         {% if form.non_field_errors %}
                             <div class="form-errors">

@@ -4,7 +4,8 @@ const menuIcon = navToggle.querySelector('i');
 const pageTitle = document.querySelector('.page-title');
 const pageRevealBlocks = document.querySelectorAll('.page-content-reveal');
 const hasFeedbackMessage = document.querySelector('.message-success, .message-error');
-const shouldSkipTitleAnimation = Boolean(hasFeedbackMessage);
+const hasFormErrors = document.querySelector('.form-error, .form-errors');
+const shouldSkipTitleAnimation = Boolean(hasFeedbackMessage || hasFormErrors);
 
 // Toggle sidebar when hamburger is clicked
 navToggle.addEventListener('click', () => {
